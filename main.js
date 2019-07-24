@@ -66,11 +66,18 @@ var leftPressed = false;
 //créer les variables liées aux briques
 var brickRowCount = 3;
 var brickColumnCount = 5;
-var brickWidth = 75;
-var brickHeight = 20;
 var brickPadding = 10;
 var brickOffsetTop = 30;
 var brickOffsetLeft = 30;
+//définir la largeur utilisable en fonction du  nombre de briques
+var newCanvasWidth = (canvas.width - (brickOffsetLeft * 2) - brickPadding * (brickColumnCount - 1));
+//définir la largeur des briques en fonctions du nombre de briques
+var brickWidth = newCanvasWidth / brickColumnCount;
+// définir la hauteur utilisable en fonction du nombres de briques
+var newCanvasHeight = (canvas.height / 2 ) - (brickOffsetTop * 2) - brickPadding * (brickRowCount - 1);
+console.log(newCanvasHeight);
+//définir la hauteur des briques en fonction du nombre de briques
+var brickHeight = newCanvasHeight / brickRowCount;
 var gameOverNotify = document.querySelector('.game-over-notify');
 var interval;
 var score = 0;
